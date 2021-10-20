@@ -1,0 +1,18 @@
+from datetime import datetime             #importo la libreria datetime para manipular calendarios
+datetime(1970, 1, 1).weekday()               
+
+fecha = (1997, 11, 20)                    #es la fecha de corte que asigne
+
+def Jueves (fecha):    
+    cantidad_jueves = 0                   #inicio el contador
+    for año in range(1970, fecha[0]+1):   #donde "año" son c/u de los años desde 1970 hasta 1997
+        for mes in range(1, 13):          #donde "mes" son c/u de los 12 meses del año
+            dia_1_mes = datetime(año, mes, 1).weekday()   #aca le pido que me busque el 1er dia de cada mes 
+            if año == fecha[0] and mes == fecha[1]:
+                break                        #el programa corre hasta el dia que le asigne en la variable "fecha"
+            if dia_1_mes == 3:               #si es 1er dia de cada mes es igual a jueves (jueves es el dia 3)
+                cantidad_jueves = cantidad_jueves + 1 #va sumando de a 1 la cant. de jueves en donde inicie el mes en el contador
+                
+    return cantidad_jueves
+
+Jueves (fecha)
